@@ -1,0 +1,57 @@
+---
+export interface Props {
+  variant?: "default" | "compact";
+}
+
+const { variant = "default" } = Astro.props;
+---
+
+<div class={variant === 'default' ? 'newsletter-box bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-lg p-6 my-8' : 'newsletter-compact mt-6'}>
+  {variant === 'default' && (
+    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+      Want to connect about projects, opportunities, or collaboration?
+    </p>
+  )}
+  
+  <div class="flex flex-col sm:flex-row gap-3">
+    <a
+      href="mailto:somtofrancis380@gmail.com"
+      class="px-6 py-2 bg-accent rounded-md hover:bg-accent/90 transition-colors font-medium whitespace-nowrap text-center"
+      style="color: white;"
+    >
+      Email Francis
+    </a>
+    <a
+      href="https://www.linkedin.com/in/francisoledibe/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="px-6 py-2 border border-gray-300 dark:border-gray-600 rounded-md hover:border-accent transition-colors font-medium whitespace-nowrap text-center"
+    >
+      LinkedIn
+    </a>
+    <a
+      href="https://github.com/oledibefrancis"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="px-6 py-2 border border-gray-300 dark:border-gray-600 rounded-md hover:border-accent transition-colors font-medium whitespace-nowrap text-center"
+    >
+      GitHub
+    </a>
+  </div>
+  
+  {variant === 'default' && (
+    <p class="text-xs text-gray-500 dark:text-gray-400 mt-3">
+      Response times vary based on work schedule.
+    </p>
+  )}
+</div>
+
+<style>
+  @media (max-width: 640px) {
+    .newsletter-box {
+      margin-left: -1rem;
+      margin-right: -1rem;
+      border-radius: 0;
+    }
+  }
+</style>
